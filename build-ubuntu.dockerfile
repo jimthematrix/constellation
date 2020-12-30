@@ -26,9 +26,9 @@ ENV SRC /usr/local/src/constellation
 WORKDIR $SRC
 
 ADD stack.yaml $SRC/
-RUN stack setup
 
 ADD LICENSE constellation.cabal $SRC/
+RUN stack setup
 RUN stack build --dependencies-only
 
 # TODO: possibly combine these commands with tar+ADD
